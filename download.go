@@ -10,6 +10,12 @@ import (
 	//bp "github.com/nexustix/boilerplate"
 )
 
+//Download represents a downloadable file
+type Download struct {
+	Filename string
+	URL      string
+}
+
 //DownloadRemoteFile downloads a remote file via a remote adress
 func DownloadRemoteFile(destination, remoteAdress string) {
 	//remoteAdress := "http://www.bay12games.com/dwarves/df_40_24_win.zip"
