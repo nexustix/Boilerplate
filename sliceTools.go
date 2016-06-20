@@ -31,3 +31,11 @@ func EliminateStringInSlice(theStrings []string, deadString string) []string {
 	}
 	return tmpStrings
 }
+
+//StringAtIndex returns string at index or an empty string if none is found
+func StringAtIndex(index int, slice []string) string {
+	if len(slice) > index+1 {
+		return slice[index]
+	}
+	return ""
+}
