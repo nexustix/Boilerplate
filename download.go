@@ -28,7 +28,17 @@ func DownloadRemoteFile(destination, remoteAdress string) {
 	var remoteSize int64
 	var percent int64
 
-	remoteData, err := http.Get(remoteAdress)
+	//pool := x509.NewCertPool()
+	tr := &http.Transport{
+		//TLSClientConfig:    &tls.Config{RootCAs: pool},
+		DisableCompression: true,
+	}
+	client := &http.Client{Transport: tr}
+	remoteData, err := client.Get(remoteAdress)
+
+	/*
+		remoteData, err := http.Get(remoteAdress)
+	*/
 	if GotError(err) {
 		panic("<!> Error getting remote data")
 	}
