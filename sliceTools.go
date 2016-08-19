@@ -39,3 +39,18 @@ func StringAtIndex(index int, slice []string) string {
 	}
 	return ""
 }
+
+//PrintStringSlice is a debug funktion to display content of arrays with unknown size
+func PrintStringSlice(theStrigSlice []string, doPrint bool) {
+	if doPrint {
+		tmpString := ""
+		for k, v := range theStrigSlice {
+			if k == len(theStrigSlice)-1 {
+				tmpString = tmpString + v
+			} else {
+				tmpString = tmpString + v + " | "
+			}
+		}
+		print("<D> >" + tmpString + "<\n")
+	}
+}

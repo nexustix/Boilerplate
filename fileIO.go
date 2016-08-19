@@ -1,6 +1,9 @@
 package boilerplate
 
-import "os"
+import (
+	"io/ioutil"
+	"os"
+)
 
 // FileExists tests if a file exists
 func FileExists(path string) bool {
@@ -27,4 +30,15 @@ func CreateFileIfMissing(filename string) {
 		FailError(err)
 		outFile.Close()
 	}
+}
+
+//GetFilesInDir returns names of all files at given path
+func GetFilesInDir(path string) []string {
+	var tmpFiles []string
+	files, _ := ioutil.ReadDir(path)
+	for _, f := range files {
+		//fmt.Println(f.Name())
+		tmpFiles = append(tmpFiles, f.Name())
+	}
+	return tmpFiles
 }
