@@ -66,7 +66,7 @@ func DownloadRemoteFile(destination, remoteAdress string) {
 
 	var maybeEqual bool
 
-	if exists && tmpStat.Size() > 0 && tmpStat.Size() != remoteSize {
+	if (exists && tmpStat.Size() >= 0) && (tmpStat.Size() != remoteSize) {
 		maybeEqual = false
 		//fmt.Println("info;Size different")
 	} else {
